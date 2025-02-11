@@ -28,6 +28,13 @@
                 <input type="text" v-model.trim="data.inputName"/>
                 <button @click="insertName">Add</button>
             </div>
+            <div
+                class="error_label animate__animated animate__fadeInDown"
+                v-if="data.showError"
+            >
+                No empty or repeating names
+            </div>
+
 
             <div class="list_of_names">
                 <div 
@@ -39,9 +46,24 @@
                     {{name}}
                 </div>
             </div>
+            <div v-if="isReady"
+            class = "animate__animated animate__bounceIn"
+            >
+                <div class = "action_button" @click="showResults">
+                    Check the looser
+                </div>
+            </div>
         </div>
-
         <div id="results" class="container" v-else>
+            <div class = "result_container">
+                <h1>The looser is: </h1>
+                <div class = "result_value">
+                    {{data.result}}
+                </div>
+            </div>
+            <div class="action_button" @click="Start_Over">Start Over</div>
+            <br/>
+            <div class="action_button btn2" @click="New_Name">Get New Name</div>
         </div>
     </div>
 </body>
