@@ -44,10 +44,10 @@ createApp({
             while((name = randName()) == data.result){
             }
             data.result = name;
-        }
+        };
         const valid_ = (val) => {
             return val==='' || data.names.includes(val);
-        }
+        };
 
         const removeName = (index) => {
             data.names.splice(index,1)
